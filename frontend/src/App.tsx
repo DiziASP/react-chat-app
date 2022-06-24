@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react'
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1 className="text-7xl font-bold underline">Hello world!</h1>
-  </div>
-);
+import Router from './routers'
 
-export default App;
+const App: React.FC = () => <Router />
+
+export default App
