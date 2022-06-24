@@ -5,7 +5,7 @@ type Props = {
 }
 
 const Chat = (props: Props) => {
-  return <h1 className='text-7xl'>Chat</h1>
+  return <h1 className='text-7xl text-white'>Chat</h1>
 }
 
 export default Chat

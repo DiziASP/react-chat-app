@@ -5,7 +5,7 @@ type Props = {
 }
 
 const Login = (props: Props) => {
-  return <h1 className='text-7xl'>Login</h1>
+  return <h1 className='text-7xl text-white'>Login</h1>
 }
 
 export default Login
