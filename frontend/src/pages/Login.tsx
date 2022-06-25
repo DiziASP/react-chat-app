@@ -13,20 +13,23 @@ const Login = () => {
     password: '',
   })
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (
+    e: React.FormEvent,
+    toastOptions?: {
+      position: 'bottom-right'
+      autoClose: 8000
+      pauseOnHover: true
+      draggable: true
+      theme: 'dark'
+    },
+  ) => {
     e.preventDefault()
     if (handleValidations()) {
       const { username, password } = values
       const { data } = await axios.post(loginRoute, { username, password })
 
       if (data.status === false) {
-        toast.error(data.msg, {
-          position: 'bottom-right',
-          autoClose: 8000,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'dark',
-        })
+        toast.error(data.msg, toastOptions)
       } else if (data.status === true) {
         localStorage.setItem('chat-app-user', JSON.stringify(data.user))
         navigate('/')
@@ -38,16 +41,16 @@ const Login = () => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
 
-  const handleValidations = () => {
+  const handleValidations = (toastOptions?: {
+    position: 'bottom-right'
+    autoClose: 8000
+    pauseOnHover: true
+    draggable: true
+    theme: 'dark'
+  }) => {
     const { password, username } = values
     if (username.length === 0 || password.length === 0) {
-      toast.error('Email and password are require.', {
-        position: 'bottom-right',
-        autoClose: 8000,
-        pauseOnHover: true,
-        draggable: true,
-        theme: 'dark',
-      })
+      toast.error('Email and password are require.', toastOptions)
       return false
     }
     return true

@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "buffer": "^6.0.3",
+    "local-cors-proxy": "^1.1.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
@@ -40,5 +41,6 @@
     "tailwindcss": "^3.1.4",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
-  }
+  },
+  "proxy": "https://cors-anywhere.herokuapp.com/"
 }
