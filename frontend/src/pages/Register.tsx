@@ -30,7 +30,7 @@ const Register = () => {
           theme: 'dark',
         })
       } else if (data.status === true) {
-        localStorage.setItem(process.env.REACT_APP_LOCALHOST_KEY!, JSON.stringify(data.user))
+        localStorage.setItem('chat=app-user', JSON.stringify(data.user))
         navigate('/')
       }
     }
@@ -82,6 +82,12 @@ const Register = () => {
 
     return true
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('chat-app-user')) {
+      navigate('/')
+    }
+  }, [])
 
   return (
     <>
